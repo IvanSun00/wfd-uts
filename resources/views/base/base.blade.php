@@ -13,7 +13,6 @@
     {{-- favicon --}}
     <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
     {{-- tailwind --}}
-    {{-- <script src="https://cdn.tailwindcss.com/3.4.5"></script> --}}
     @vite('resources/css/app.css')
     {{-- swiper --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -38,6 +37,36 @@
     @yield('styles')
 </head>
 <body>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: '{{ session('success') }}',
+            })
+        </script>
+    @endif
+    @if(session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+            })
+        </script>
+    @endif
+    
+    @if($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Validation Error',
+            })
+        </script>
+    @endif
+
+    
     @include('partials.navbar')
     
     @yield('content')
