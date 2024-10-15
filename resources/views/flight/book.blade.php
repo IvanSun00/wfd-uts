@@ -39,9 +39,13 @@
                     type="text"
                     id="passenger_name"
                     name="passenger_name"
-                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="@error('passenger_name') border-red-500 @enderror  w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Masukkan nama lengkap" required 
+                    value="{{ old('passenger_name') }}"
                     />
+                <span class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                    @error('passenger_name') {{ $message }} @enderror
+                </span>
             </div>
     
             <!-- passenger_phone -->
@@ -51,8 +55,12 @@
                     type="tel"
                     id="passenger_phone"
                     name="passenger_phone"
-                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Masukkan no telephone" required />
+                    class=" @error('passenger_name') border-red-500 @enderror w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan no telephone" required 
+                    value="{{ old('passenger_phone') }}"/>
+                    <span class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                        @error('passenger_phone') {{ $message }} @enderror
+                    </span>
             </div>
     
             <!-- seat_number -->
@@ -62,8 +70,12 @@
                     type="text"
                     id="seat_number"
                     name="seat_number"
-                    class="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Masukkan Seat Number" required />
+                    class=" @error('passenger_name') border-red-500 @enderror w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan Seat Number" required
+                    value="{{ old('seat_number') }}" />
+                    <span class="mt-2 text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                        @error('seat_number') {{ $message }} @enderror
+                    </span>
             </div>
     
             <!-- Tombol Submit & Reset -->

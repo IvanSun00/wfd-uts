@@ -12,6 +12,9 @@ class TicketController extends Controller
     public function index(Flight $flight){
         $data['flight'] = $flight;
         $data['tickets'] = Ticket::where('flight_id',$flight->id)->get();
+        $data['totalBoard'] = Ticket::where('flight_id',$flight->id)
+                                        ->where('is_boarding', 1)
+                                        ->count();
         return view('flight.detail',$data);
         
     }
@@ -26,7 +29,7 @@ class TicketController extends Controller
         $validated = $request->validate([
             'flight_id' => 'required|exists:flights,id',
             'passenger_name' => 'required|string|max:255',
-            'passenger_phone' => 'required|max_digits:14|numeric',
+            'passenger_phone' => 'required|numeric|max_digits:14',
             'seat_number' => 'required|string|max:3',
         ]);
 

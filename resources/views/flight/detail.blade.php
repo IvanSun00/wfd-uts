@@ -9,7 +9,7 @@
 <div class="min-h-svh max-w-screen-xl mx-auto mt-12">
     <div class="flex justify-between border-b border-slate-300 mb-2">
         <h2 class="text-2xl font-bold mb-2">Ticket Details for {{ $flight->flight_code }}</h2>
-        <h2 class="text-2xl font-bold mb-2">x passengers * x boardings</h2>
+        <h2 class="text-2xl font-bold mb-2">{{ count($tickets) }} passengers | {{ $totalBoard }} boardings</h2>
     </div> 
     <div class="flex justify-between mb-10">
         <p class="text-md antialiased font-normal leading-normal text-gray-700 opacity-75">
@@ -86,7 +86,7 @@
                             <form action="{{ route('ticket.destroy',$t->id) }}" method="POST">
                                 @csrf
                                 @method('Delete')
-                                <button type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                <button type="submit" {{ $t->is_boarding? 'disabled': '' }} class=" text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                     Delete
                                 </button>
                             </form>

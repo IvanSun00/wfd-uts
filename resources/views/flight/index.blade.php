@@ -6,11 +6,11 @@
 @section('content')
 <div class="container outer min-h-svh py-5 mx-auto ">
     {{-- headline --}}
-    <div class="block mb-4 mx-auto border-b border-slate-300 pb-2 max-w-[360px]">
+    <div class="block mb-8 mx-auto border-b border-slate-300 pb-1 max-w-[360px]">
         <a 
             target="_blank" 
             href="https://www.material-tailwind.com/docs/html/card" 
-            class="block w-full px-4 py-2 text-center text-slate-700 transition-all"
+            class="block w-full px-4 py-2 text-xl text-center text-slate-700 transition-all"
         >
             <b>Airplane Booking System</b>.
         </a>
@@ -20,7 +20,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
         @foreach ($flights as $flight )
             <!-- Card 1 -->
-            <div class="relative flex flex-col text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl w-72 mx-auto">
+            <div class="relative flex flex-col text-gray-700 bg-white shadow-lg  rounded-xl w-72 mx-auto">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-2">
                         <p class="block font-sans text-base antialiased font-medium leading-relaxed text-gray-900">
